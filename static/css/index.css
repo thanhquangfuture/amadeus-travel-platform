@@ -1,0 +1,246 @@
+@import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+:root {
+    --main-color: #005eb8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+}
+
+.circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--main-color);
+    clip-path: circle(600px at right 800px);
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    position: relative;
+    max-width: 80px;
+}
+
+header ul {
+    position: relative;
+    display: flex;
+}
+
+header ul li {
+    list-style: none;
+}
+
+header ul li a {
+    display: inline-block;
+    color: #333;
+    font-weight: 400;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content .textBox {
+    position: relative;
+    max-width: 600px;
+}
+
+.content .textBox .tabimg {
+    display: none;
+}
+
+.content .textBox .tabimg.active {
+    display: inline-block;
+}
+
+.content .textBox h2 {
+    color: #333;
+    font-size: 3.5em;
+    line-height: 1.2em;
+    font-weight: 500;
+}
+
+.content .textBox h2 span {
+    color: var(--main-color);
+    font-size: 1em;
+    font-weight: 900;
+    padding-bottom: 10px;
+}
+
+.content .textBox p {
+    padding-top: 10px;
+    color: #333;
+}
+
+.content .textBox .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: var(--main-color);
+    color: #fff;
+    border-radius: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.content .textBox .btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.content .textBox .btn::before {
+    content: '';
+    position: absolute;
+    left: calc(var(--x) - 100px);
+    top: calc(var(--y) - 150px);
+    transform: translate(-50%, -50%);
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    background: #298fee;
+    transition: width .5s, height .5s;
+}
+
+.content .textBox .btn:hover::before {
+    width: 400px;
+    height: 400px;
+}
+
+.content .imgBox {
+    width: 800px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50px;
+    margin-top: 50px;
+}
+
+.content .imgBox img {
+    max-width: 400px;
+}
+
+.thumb {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%);
+    display: flex;
+}
+
+.thumb li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.thumb li:hover {
+    transform: translateY(-15px);
+}
+
+.thumb li img {
+    max-width: 60px;
+}
+
+.social {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.social li {
+    list-style: none;
+}
+
+.social li a {
+    display: inline-block;
+    margin: 5px 0;
+    transform: scale(.6);
+    filter: invert(1);
+}
+
+
+/* Css Modal */
+
+@media (max-width: 991px) {
+    header {
+        padding: 20px;
+    }
+    header .logo {
+        max-width: 60px;
+    }
+    section {
+        padding: 20px 20px 120px;
+    }
+    .circle {
+        clip-path: circle(400px at center bottom);
+    }
+    .content {
+        flex-direction: column;
+        margin-top: 100px;
+    }
+    .content .textBox {
+        max-width: 100%;
+    }
+    .content .textBox .btn::before {
+        left: calc(var(--x) - 50px);
+        top: calc(var(--y) - 120px);
+    }
+    .content .imgBox {
+        max-width: 100%;
+        justify-content: center;
+    }
+    .content .imgBox img {
+        max-width: 400px;
+    }
+    .content .textBox h2 {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+    }
+    .social {
+        background: var(--main-color);
+        right: 0;
+        width: 50px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        align-items: center;
+    }
+}

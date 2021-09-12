@@ -1,0 +1,292 @@
+/* section.active {
+    background: rgba(150, 21, 21, 0.6);
+} */
+
+section .container {
+    position: absolute;
+    top: calc(50% - 250px);
+    left: calc(50% - 350px);
+    z-index: 1;
+    width: 700px;
+    height: 500px;
+    box-shadow: 0 15px 24px rgba(0, 0, 0, 0.11), 0 15px 24px rgba(9, 10, 12, 0.568);
+    overflow: hidden;
+}
+
+section .container.active {
+    box-shadow: 0 15px 24px rgba(0, 0, 0, 0.11), 0 15px 24px rgba(0, 94, 184, 0.5);
+}
+
+section .container .user {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+section .container .user .imgBx {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    transition: 0.5s;
+}
+
+section .container .user .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section .container .user .formBx {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    transition: 0.5s;
+}
+
+section .container .user .formBx h2 {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+section .container .user .formBx .form-group {
+    width: 270px;
+}
+
+section .container .user .formBx .form-group input,
+section .container .user .formBx .form-submit {
+    width: 100%;
+    padding: 10px;
+    background: #f5f5f5;
+    color: #333;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-size: 14px;
+    margin: 8px 0;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+section .container .user .formBx .form-submit {
+    background: #677eff;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: 0.5s;
+}
+
+section .container .signupBx .formBx .form-submit {
+    background: #e73e49;
+}
+
+.form-group.invalid .form-message {
+    color: #e73e49;
+}
+
+section .container .user .formBx .signup {
+    position: relative;
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #555;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+section .container .user .formBx .signup a {
+    font-weight: 600;
+    text-decoration: none;
+    color: #577eff;
+}
+
+section .container .signupBx {
+    pointer-events: none;
+}
+
+section .container.active .signupBx {
+    pointer-events: initial;
+}
+
+section .container .signupBx .formBx {
+    top: 100%;
+}
+
+section .container.active .signupBx .formBx {
+    top: 0;
+}
+
+section .container .signupBx .imgBx {
+    top: -100%;
+    transition: 0.5s;
+}
+
+section .container.active .signupBx .imgBx {
+    top: 0;
+}
+
+section .container .signinBx .formBx {
+    top: 0;
+}
+
+section .container.active .signinBx .formBx {
+    top: 100%;
+}
+
+section .container .signinBx .imgBx {
+    top: 0;
+    transition: 0.5s;
+}
+
+section .container.active .signinBx .imgBx {
+    top: -100%;
+}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    background: rgb(0, 0, 0);
+    /* Fallback color */
+    background: rgba(116, 116, 116, 0.6);
+    /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+button {
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    opacity: .8;
+}
+
+.btn-11 {
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-11:before {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    top: -180px;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background-color: #fff;
+    animation: shiny-btn1 3s ease-in-out infinite;
+}
+
+@-webkit-keyframes shiny-btn1 {
+    0% {
+        -webkit-transform: scale(0) rotate(45deg);
+        opacity: 0;
+    }
+    80% {
+        -webkit-transform: scale(0) rotate(45deg);
+        opacity: 0.5;
+    }
+    81% {
+        -webkit-transform: scale(4) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scale(50) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+
+/* Add Zoom Animation */
+
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+@media (max-width: 991px) {
+    section .container {
+        max-width: 400px;
+        top: calc(50% - 250px);
+        left: calc(50% - 200px);
+    }
+    section .container .imgBx {
+        display: none;
+    }
+    section .container .user .formBx {
+        width: 100%;
+    }
+    section .container.active .signinBx .formBx {
+        top: -100%;
+    }
+}
