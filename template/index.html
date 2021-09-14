@@ -59,7 +59,7 @@
             <div id="form-1" class="user signinBx">
                 <div class="imgBx"><img src="../img/login.png"></div>
                 <div class="formBx">
-                    <span onclick="closeModal(click);" class="close" title="Close Modal">&times;</span>
+                    <span onclick="closeModal(click);" class="close" title="Close Modal"><img src="../img/close.png" alt="X"/></span>
                     <form action="">
                         <h2>Đăng nhập</h2>
                         <div class="form-group">
@@ -71,16 +71,34 @@
                             <span class="form-message"></span>
                         </div>
                         <button class="form-submit btn-11">Đăng nhập</button>
-                        <p class="signup"><a href="#">Đặt lại mật khẩu</a></p>
-                        <p class="signup">Mở tài khoản
-                            <a href="#" onclick="toggleForm();">Đăng ký</a>
+                        <p class="signup"><a href="#" onclick="forgotPass(click);">Đặt lại mật khẩu</a></p>
+                        <p class="signin">Mở tài khoản
+                            <a href="#" class="signin" onclick="toggleForm();">Đăng ký</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <div id="form-3" class="user forgotPass">
+                <div class="imgBx"><img src="../img/forgot.png"></div>
+                <div class="formBx">
+                    <span onclick="closeModal(click);" class="close" title="Close Modal"><img src="../img/close.png" alt="X"/></span>
+                    <form action="">
+                        <h2>Bạn quên mật khẩu</h2>
+                        <p>Hướng dẫn đặt lại mật khẩu sẽ được gửi qua email đã đăng ký</p>
+                        <div class="form-group">
+                            <input id="username" name="username" type="text" placeholder="Tên đăng nhập" class="form-control">
+                            <span class="form-message"></span>
+                        </div>
+                        <button class="form-submit btn-10">Gửi Email</button>
+                        <p class="forgot">
+                            <a href="#" onclick="openIn(click);"><img src="../img/backicon.png">Quay lại</a>
                         </p>
                     </form>
                 </div>
             </div>
             <div id="form-2" class="user signupBx">
                 <div class="formBx">
-                    <span onclick="closeModal(click);" class="close" title="Close Modal">&times;</span>
+                    <span onclick="closeModal(click);" class="close" title="Close Modal"><img src="../img/close.png" alt="X"/></span>
                     <form action="">
                         <h2>Đăng ký tài khoản</h2>
                         <div class="form-group">
@@ -98,16 +116,16 @@
                         </div>
                         <button class="form-submit btn-11">Đăng ký</button>
                         <p class="signup">Bạn đã có tài khoản?
-                            <a href="#" onclick="toggleForm();">Đăng nhập.</a>
+                            <a href="#" onclick="toggleForm();">Đăng nhập</a>
                         </p>
                     </form>
                 </div>
-                <div class="imgBx"><img src="../img/Logup.png"></div>
+                <div class="imgBx"><img src="../img/Logup.png "></div>
             </div>
         </div>
     </section>
-    <script src="../static/js/main.js"></script>
-    <script src="../static/js/form-validator.js"></script>
+    <script src="../static/js/main.js "></script>
+    <script src="../static/js/form-validator.js "></script>
     <script>
         Validator({
             form: '#form-1',
@@ -131,6 +149,17 @@
                 Validator.isRequired('#email', 'Vui lòng nhập email'),
                 Validator.isEmail('#email'),
                 Validator.isRequired('#tel', 'Vui lòng nhập số điện thoại'),
+            ],
+            onSubmit: function(data) {
+                console.log(data);
+            }
+        });
+        Validator({
+            form: '#form-3',
+            errorSelector: '.form-message',
+            formGroupSelector: '.form-group',
+            rules: [
+                Validator.isRequired('#username', 'Vui lòng nhập tài khoản'),
             ],
             onSubmit: function(data) {
                 console.log(data);

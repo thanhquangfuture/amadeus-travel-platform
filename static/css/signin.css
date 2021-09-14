@@ -65,6 +65,11 @@ section .container .user .formBx h2 {
     color: #555;
 }
 
+section .container .forgotPass .formBx p {
+    max-width: 270px;
+    padding: 15px 0;
+}
+
 section .container .user .formBx .form-group {
     width: 270px;
 }
@@ -99,13 +104,18 @@ section .container .signupBx .formBx .form-submit {
     background: #e73e49;
 }
 
+section .container .forgotPass .formBx .btn-10 {
+    background: #f7cb42;
+}
+
 .form-group.invalid .form-message {
     color: #e73e49;
 }
 
+section .container .user .formBx .signin,
 section .container .user .formBx .signup {
     position: relative;
-    margin-top: 20px;
+    margin-top: 12px;
     font-size: 12px;
     letter-spacing: 1px;
     color: #555;
@@ -113,10 +123,24 @@ section .container .user .formBx .signup {
     font-weight: 400;
 }
 
-section .container .user .formBx .signup a {
+section .container .user .formBx .signin a,
+section .container .user .formBx .signup a,
+section .container .user .formBx .forgot a {
     font-weight: 600;
     text-decoration: none;
+    color: #e73e49;
+}
+
+section .container .user .formBx .signup {
+    margin-top: 20px;
+}
+
+section .container .user .formBx .signup a {
     color: #577eff;
+}
+
+#form-3 {
+    display: none;
 }
 
 section .container .signupBx {
@@ -197,11 +221,13 @@ button:hover {
     opacity: .8;
 }
 
+.btn-10,
 .btn-11 {
     overflow: hidden;
     transition: all 0.3s ease;
 }
 
+.btn-10:before,
 .btn-11:before {
     position: absolute;
     content: '';
@@ -233,19 +259,24 @@ button:hover {
     }
 }
 
-.close {
+section .container .user .formBx .close img {
+    top: 5px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    color: #e73e49;
     position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
+    -webkit-transition: -webkit-transform 0.25s, opacity 0.25s;
+    -moz-transition: -moz-transform 0.25s, opacity 0.25s;
+    transition: transform 0.25s, opacity 0.25s;
+    opacity: 1;
 }
 
-.close:hover,
-.close:focus {
-    color: red;
-    cursor: pointer;
+section .container .user .formBx .close img:hover {
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    transform: rotate(270deg);
+    opacity: 1;
 }
 
 
@@ -288,5 +319,8 @@ button:hover {
     }
     section .container.active .signinBx .formBx {
         top: -100%;
+    }
+    #form-3 {
+        display: none;
     }
 }

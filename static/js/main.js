@@ -3,6 +3,8 @@ const btn = document.querySelector('.btn');
 const modal = document.getElementById('modal');
 const container = document.querySelector('.container');
 const tabs = document.querySelectorAll('.tabimg');
+const forgot = document.getElementById('form-3');
+const signin = document.getElementById('form-1');
 
 function changeSlider(img, para, title) {
     imgSlider(img);
@@ -34,7 +36,15 @@ function closeModal(click) {
 // link open modal Signin
 function openIn(click) {
     modal.style.display = "block";
+    forgot.style.display = "none";
+    signin.style.display = "flex";
     container.className = container.className.replace(" active", "");
+};
+// link open modal Forgotpass
+function forgotPass(click) {
+    modal.style.display = "block";
+    signin.style.display = "none";
+    forgot.style.display = "flex";
 };
 // link open modal Signup
 function openUp(click) {
