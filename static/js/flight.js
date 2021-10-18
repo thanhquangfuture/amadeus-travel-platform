@@ -294,9 +294,11 @@
             $("#dep-1").addClass('input_date');
             $("#dep-2").addClass('input_date');
             $('.twoway').addClass('active');
-            const depValue = formatIdToDate($("#dep-1").val(), 2);
-            const dep2Value = formatDateToID(depValue);
-            $("#dep-2").val(dep2Value);
+            if ($("#dep-1").val() !== '') {
+                const depValue = formatIdToDate($("#dep-1").val(), 2);
+                const dep2Value = formatDateToID(depValue);
+                $("#dep-2").val(dep2Value);
+            }
             $('.more_flight').remove();
         });
         $('.multicity').on("click", function() {
