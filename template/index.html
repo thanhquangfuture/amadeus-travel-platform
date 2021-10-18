@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Amadeus Travel Platform</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="shortcut icon" type="image/png" href="../img/favicon.png" />
     <link rel="stylesheet" href="../static/css/index.css">
     <link rel="stylesheet" href="../static/css/signin.css">
@@ -64,10 +65,11 @@
                         <h2>Đăng nhập</h2>
                         <div class="form-group">
                             <input id="username" name="username" type="text" placeholder="Tên đăng nhập" class="form-control">
-                            <span class="form-message"></span>
+                            <span id="message" class="form-message"></span>
                         </div>
                         <div class="form-group">
-                            <input id="passwordlogin" name="passwordlogin" type="passwordlogin" placeholder="Mật khẩu" class="form-control">
+                            <input id="passwordlogin" name="passwordlogin" type="password" placeholder="Mật khẩu" class="form-control">
+                            <span class="show-btn"><i class="fas fa-eye"></i></span>
                             <span class="form-message"></span>
                         </div>
                         <button class="form-submit btn-11">Đăng nhập</button>
@@ -86,12 +88,39 @@
                         <h2>Bạn quên mật khẩu</h2>
                         <p>Hướng dẫn đặt lại mật khẩu sẽ được gửi qua email đã đăng ký</p>
                         <div class="form-group">
-                            <input id="username" name="username" type="text" placeholder="Tên đăng nhập" class="form-control">
+                            <input id="usernameforpass" name="username" type="text" placeholder="Tên đăng nhập" class="form-control">
                             <span class="form-message"></span>
                         </div>
                         <button class="form-submit btn-10">Gửi Email</button>
                         <p class="forgot">
                             <a href="#" onclick="openIn(click);"><img src="../img/backicon.png">Quay lại</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <div id="form-4" class="user otp">
+                <div class="imgBx"><img src="../img/login.png"></div>
+                <div class="formBx">
+                    <span onclick="closeModal(click);" class="close" title="Close Modal"><img src="../img/close.png" alt="X"/></span>
+                    <form action="">
+                        <h2>Đăng nhập</h2>
+                        <div class="form-group">
+                            <input id="usernameotp" name="username" type="text" placeholder="Tên đăng nhập" class="form-control">
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <input id="otp" name="OTP" type="text" placeholder="Nhập OTP" class="form-control">
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <input id="passwordotp" name="passwordlogin" type="password" placeholder="Mật khẩu" class="form-control">
+                            <span class="show-btn"><i class="fas fa-eye"></i></span>
+                            <span class="form-message"></span>
+                        </div>
+                        <button class="form-submit btn-11">Đăng nhập</button>
+                        <p class="signup"><a href="#" onclick="forgotPass(click);">Đặt lại mật khẩu</a></p>
+                        <p class="signin">Mở tài khoản
+                            <a href="#" class="signin" onclick="toggleForm();">Đăng ký</a>
                         </p>
                     </form>
                 </div>
@@ -134,10 +163,17 @@
             rules: [
                 Validator.isRequired('#username', 'Vui lòng nhập tài khoản'),
                 Validator.isRequired('#passwordlogin'),
-                Validator.minLength('#passwordlogin', 6),
+                // Validator.minLength('#passwordlogin', 6),
             ],
             onSubmit: function(data) {
                 console.log(data);
+                if (data.username == "thanhquangfuture") {
+                    modal.style.display = "block";
+                    signin.style.display = "none";
+                    otp.style.display = "flex";
+                } else {
+                    document.getElementById("message").innerHTML = '<span style="color:blue">Bạn nhập sai tên đăng nhập hoặc password</span>'
+                };
             }
         });
         Validator({

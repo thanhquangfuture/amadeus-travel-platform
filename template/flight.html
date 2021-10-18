@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="shortcut icon" type="image/png" href="../img/favicon.png" />
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/flight.css">
+    <link rel="stylesheet" href="../static/css/rCalendar.css">
+    <link rel="stylesheet" href="../static/css/sCalendar.css">
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/flight.js"></script>
+    <script src="../static/js/rCalendar.js"></script>
+    <script src="../static/js/sCalendar.js"></script>
+
+
+    <title>Amadeus Travel Platform</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <a href="#" class="logo"><img src="../img/logo.png" alt="logo"></a>
+                <div class="menu">
+                    <ul>
+                        <li class="nav flight active"><img src="../img/flight.png" alt="flight">Vé Máy bay
+                            <ul class="subnav navflight">
+                                <li class="subnavli ticketing"><img src="../img/ticketing.png" alt="ticketing"><span>Xuất vé</span></li>
+                                <li class="subnavli booking-mg"><img src="../img/ticketmg.png" alt="booking-mg"><span>Quản lý vé</span></li>
+                                <li class="subnavli ticket-mg"><img src="../img/bookingmg.png" alt="ticket-mg"><span>Quản lý booking</span></li>
+                            </ul>
+                        </li>
+                        <li class="nav hotel"><img src="../img/hotel_menu.png" alt="hotel">Khách sạn</li>
+                        <li class="nav service"><img src="../img/service.png" alt="service">Dịch vụ</li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="flight_search">
+            <div class="booking_info">
+                <div class="option">
+                    <span class="way twoway active"><img src="../img/two-ways2.png" alt="two-ways">Khứ hồi</span>
+                    <span class="way oneway"><img src="../img/one-way2.png" alt="one-way">Một chiều</span>
+                    <span class="way multicity"><img src="../img/multicity.png" alt="one-way">Nhiều thành phố</span>
+                </div>
+                <div class="booking_details">
+                    <datalist id="place_list"> 
+
+                    </datalist>
+                    <div id="flights" class="flights">
+                        <div class="items item1">
+                            <span class="fa"><img src="../img/departure.png" alt="departure"></span>
+                            <input id="depart" name="Điểm đi" type="text" placeholder="Hồ Chí Minh (SGN)" class="place_list form-control">
+                        </div>
+                        <div class="items item2">
+                            <span class="fa"><img src="../img/arrival.png" alt="arrival"></span>
+                            <input id="arriv" name="Điểm đến" type="text" placeholder="Singapore (SIN)" class="place_list form-control">
+                        </div>
+                        <div class="items item3 depCal" id="depCal">
+                            <span class="fa"><img src="../img/calendar.png" alt="calendar"></span>
+                            <input id="dep-1" name="Ngày đi" type="text" placeholder="Ngày đi" class="form-control"></input>
+                        </div>
+                        <div class="items item3 arrive" id="arrCal">
+                            <span class="fa"><img src="../img/calendar.png" alt="calendar"></span>
+                            <input id="dep-2" name="Ngày về" type="text" placeholder="Ngày về" class="form-control"></input>
+                        </div>
+
+                    </div>
+                    <div class="items item4">
+                        <span class="fa tooltip"><img src="../img/adult.png" alt="adult"> Người lớn
+                            <span class="tooltiptext">&gt; 12 tuổi </span>
+                        </span>
+                        <button class="counter-btn cnt-down" id="adult-down" type="button">-</button>
+                        <input class="guestNo" id="adultNo" type="text" name="guests" value="1" />
+                        <button class="counter-btn cnt-up" id="adult-up" type="button">+</button>
+                    </div>
+                    <div class="items item5">
+                        <span class="fa tooltip"><img src="../img/child.png" alt="child"> Trẻ em
+                            <span class="tooltiptext">từ 2 - 11 tuổi </span>
+                        </span>
+                        <button class="counter-btn cnt-down" id="child-down" type="button">-</button>
+                        <input class="guestNo" id="childNo" type="text" name="guests" value="0" />
+                        <button class="counter-btn cnt-up" id="child-up" type="button">+</button>
+                    </div>
+                    <div class="items item6">
+                        <span class="fa tooltip"><img src="../img/baby.png" alt="infant" value="< 2 tuổi"> Em bé
+                            <span class="tooltiptext">&lt; 2 tuổi</span>
+                        </span>
+                        <button class="counter-btn cnt-down" id="infant-down" type="button">-</button>
+                        <input class="guestNo" id="infantNo" type="text" name="guests" value="0" />
+                        <button class="counter-btn cnt-up" id="infant-up" type="button">+</button>
+                    </div>
+                    <div class="items item7">
+                        <datalist id="seat_class">
+
+                        </datalist>
+                        <span class="fa"><img src="../img/seats.png" alt="departure"></span>
+                        <input id="" name="seat_class" list="seat_class" type="text" placeholder="Hạng ghế" class="form-control">
+                    </div>
+                    <div class="items item8">
+                        <datalist id="consolidator_list">
+
+                        </datalist>
+                        <span class="fa"><img src="../img/consolidator.png" alt="departure"></span>
+                        <input id="consolidator" name="consolidator" list="consolidator_list" placeholder="Chọn đối tác" class="form-control" type="text">
+                    </div>
+                    <div class="items item9">
+                        <span class="fa"><img src="../img/credit.png" alt="departure"></span>
+                        <input id="credit" name="Điểm đi" type="text" placeholder="Tiền còn lại">
+                    </div>
+                    <div class="items search">
+                        <div class="cta active"><img src="../img/search.png" alt="infant">&ensp;Tìm chuyến bay</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img src="../img/Decore.png" class="background_search" alt="">
+        <img src="../img/cloud.png" class="cloud" alt="">
+        <img src="../img/cloud.png" class="cloud2" alt="">
+        <img src="../img/cloud.png" class="cloud3" alt="">
+        <img src="../img/cloud.png" class="cloud4" alt="">
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,613 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+$main_color: #005eb8;
+$red:#f6685e;
+$blue_bg:#7d7c88;
+$grey:#f0e9ff;
+$white:#fff;
+$green: green;
+body {
+    width: 100%;
+    display: block;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.dFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.container {
+    width: 100%;
+    height: 150vh;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, #03a9f43b, white, white);
+    transform-style: preserve-3d;
+    flex-direction: column;
+    outline: none;
+    img {
+        perspective: 100vh;
+        transform-style: preserve-3d;
+    }
+} //container
+header {
+    @extend .dFlex;
+    width: 100%;
+    height: 80px;
+    margin: 0 auto;
+    padding: 0 10%;
+    color: $main_color;
+    z-index: 15;
+    box-sizing: border-box;
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        .logo {
+            width: 80px;
+            img {
+                max-width: 80px;
+                padding-top: 10px;
+            }
+        }
+        .menu {
+            @extend .dFlex;
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+                @extend .dFlex;
+                text-align: left;
+                img {
+                    width: 20px;
+                    margin: 10px 5px 0 0;
+                }
+                .nav {
+                    font-size: 16px;
+                    position: relative;
+                    font-weight: 400;
+                    cursor: pointer;
+                    text-transform: capitalize;
+                    margin-left: 40px;
+                    display: block;
+                    align-items: center;
+                    justify-content: center;
+                    .subnav {
+                        display: none;
+                        flex-direction: column;
+                        position: absolute;
+                        width: 165px;
+                        padding-top: 5px;
+                        .subnavli {
+                            width: 166px;
+                            height: 30px;
+                            align-content: center;
+                            margin: 5px auto;
+                            background: rgba(0, 95, 184, 0.2);
+                            border-radius: 5px;
+                            color: #111;
+                            img {
+                                margin: 8px 0 0 8px;
+                            }
+                            span {
+                                font-size: 15px;
+                                margin: 5px 0 0 8px;
+                                position: absolute;
+                            }
+                        }
+                        .subnavli:hover {
+                            background: $main_color;
+                            border-radius: 5px;
+                            color: #fff;
+                        }
+                    }
+                }
+                .nav.active,
+                .nav:hover {
+                    color: $main_color;
+                    border-bottom: .2rem solid $main_color;
+                    padding: .7px 0;
+                    transition: all .3s cubic-bezier(1, 0, 0, 1);
+                }
+                .nav:hover {
+                    .subnav {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.flight_search {
+    display: block;
+    text-align: center;
+    width: 860px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    margin-top: 100px;
+}
+
+.booking_info {
+    .option,
+    .service {
+        @extend .dFlex;
+        justify-content: flex-start;
+        position: relative;
+        top: 30px;
+        z-index: 1;
+        img {
+            width: 20px;
+            margin-right: 8px;
+        }
+        span {
+            padding: 10px 20px;
+            height: 70px;
+            border-radius: 20px;
+            background-color: $grey;
+            cursor: pointer;
+            @extend .dFlex;
+            align-items: flex-start;
+            font-size: 14px;
+            z-index: 1;
+            position: relative;
+            box-sizing: border-box;
+            &.active {
+                background-color: $main_color;
+                color: $white;
+                z-index: 5;
+            }
+            +span {
+                left: -15px;
+                z-index: 1;
+                +span {
+                    left: -25px;
+                    z-index: 0;
+                }
+            }
+        }
+        .way:hover {
+            background-color: $main_color;
+            color: $white;
+        }
+    }
+    .service {
+        position: absolute;
+        right: 0;
+        img {
+            width: 30px;
+            margin: 0px 5px 10px 0px;
+        }
+        span {
+            padding: 10px 20px;
+            left: 25px;
+            background-color: $grey;
+            +span {
+                left: 15px;
+                z-index: 1;
+                +span {
+                    left: 0px;
+                    z-index: 1;
+                }
+            }
+        }
+        .mservice:hover {
+            background-color: $main_color;
+            color: $white;
+        }
+    }
+}
+
+.booking_details {
+    background-color: $white;
+    height: 100%;
+    border-radius: 15px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 1px 1px 20px 0px rgba(50, 50, 50, .3);
+    @extend .dFlex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 15px;
+    box-sizing: border-box;
+    max-width: 860px;
+    flex-wrap: wrap;
+    .flights {
+        display: flex;
+        flex-wrap: wrap;
+        .more_flight {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .next_flight {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .btn {
+            margin-left: 20px;
+        }
+    }
+    .items {
+        font-size: 12px;
+        padding-left: 10px;
+        box-sizing: border-box;
+        text-align: left;
+        span {
+            display: inline;
+            float: left;
+        }
+        input,
+        .form-control {
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+        img {
+            width: 18px;
+        }
+        .fa {
+            font-size: 14px;
+            margin-right: 8px;
+            color: #0a0a0a;
+            display: inline-block;
+        }
+        .date,
+        .people {
+            font-weight: 600;
+            margin-bottom: 8px;
+            .fa {
+                margin-right: 0;
+                margin-left: 2px;
+                font-size: 14px;
+            }
+        }
+        .cta {
+            height: 35px;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            border-radius: 12px;
+            color: $main_color;
+            @extend .dFlex;
+            cursor: pointer;
+            background-color: $main_color;
+            color: $white;
+            box-shadow: 0.1rem 0.1rem 0.1rem $main_color;
+        }
+        .cta:hover {
+            background-color: rgba(1, 101, 194, 0.9);
+        }
+        .counter-btn {
+            position: relative;
+            display: inline-block;
+            height: 25px;
+            text-align: top;
+            vertical-align: top;
+            font-size: 1.5em;
+            font-weight: 300;
+            width: 25px;
+            background: #fff;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 1px 1px 1px rgba(50, 50, 50, .3);
+            cursor: pointer;
+            outline: none;
+            &:hover {
+                box-shadow: 1px 1px 5px rgba(#111, .3);
+                color: $main_color;
+            }
+        }
+        .multi-btn {
+            position: relative;
+            display: inline-block;
+            text-align: top;
+            vertical-align: top;
+            font-size: 30px;
+            font-weight: 500;
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 2px 2px 2px rgba(50, 50, 50, .3);
+            cursor: pointer;
+            outline: none;
+            margin: 2px 25px 0 0;
+            &:hover {
+                box-shadow: 1px 1px 5px rgba(#111, .3);
+                color: $main_color;
+            }
+        }
+        .mul-down {
+            font-size: 25px;
+            &:hover {
+                color: $red;
+            }
+        }
+        .guestNo {
+            width: 20px;
+            display: inline-block;
+            text-align: center;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            position: absolute;
+            width: 120px;
+            color: #000;
+            font-weight: 400;
+            margin-left: 18px;
+            text-align: left;
+            margin-bottom: 40px;
+            z-index: 1;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+    }
+    .item1,
+    .item2 {
+        padding-left: 5px;
+        width: 280px;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        .place_list {
+            width: 250px;
+        }
+    }
+    .item3 {
+        width: 130px;
+        padding-left: 5px;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        input {
+            width: 110px;
+        }
+    }
+    .item4,
+    .item5,
+    .item6,
+    .item7 {
+        max-height: 25px;
+        display: flex;
+        align-items: center;
+        margin: 15px 0 15px 0;
+        .fa {
+            margin-left: -10px;
+            color: rgba(50, 50, 50, .9);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+        }
+        span {
+            color: rgba(50, 50, 50, .3);
+        }
+        input {
+            border: none;
+            margin-bottom: -5px;
+            border-radius: 3px;
+            width: 100%;
+            outline: $grey;
+            display: block;
+        }
+    }
+    .item4 {
+        border-left: 2px solid $main_color;
+        width: 155px;
+        .fa {
+            width: 90px;
+        }
+    }
+    .item5,
+    .item6 {
+        width: 140px;
+    }
+    .item7,
+    .item8,
+    .item9 {
+        width: 270px;
+        border-left: 2px solid $main_color;
+        input {
+            font-size: 14px;
+            margin-left: -10px;
+            padding-left: 8px;
+        }
+        .fa {
+            margin-left: -5px;
+        }
+    }
+    .item8 {
+        width: 350px;
+        input {
+            width: 325px;
+        }
+    }
+    .item9 {
+        width: 180px;
+        img {
+            width: 20px;
+        }
+        input {
+            width: 120px;
+            font-size: 16px;
+            pointer-events: none;
+        }
+    }
+    .search {
+        width: 270px;
+        padding: 0;
+    }
+    .not-visible {
+        visibility: hidden;
+    }
+    .hidden {
+        display: none;
+        span {
+            font-weight: 500;
+            color: rgba(50, 50, 50, 0.6);
+        }
+    }
+}
+
+#place {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    width: 350px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px 0 rgba(23, 35, 44, 0.24), 0 -1px 5px 0 rgba(15, 53, 82, 0.2);
+    z-index: 100;
+    border-radius: 5px;
+    animation: to-right .5s forwards;
+    top: 0;
+    left: 0;
+    text-align: center;
+    input {
+        width: 350px;
+        padding: 10px;
+    }
+    .search_place {
+        display: flex;
+        justify-content: space-around;
+        animation: to-top .5s forwards;
+        font-size: 14px;
+        width: 350px;
+        height: 50px;
+        padding: 0 10px;
+        .city_img {
+            margin: auto;
+            img {
+                width: 35px;
+                border-radius: 5px;
+            }
+        }
+        .city_name {
+            margin: auto;
+            width: 270px;
+            text-align: left;
+            padding: 0 10px;
+            font-weight: 450;
+            .city_country {
+                height: 20px;
+            }
+            .airport {
+                font-size: 12px;
+                height: 20px;
+                font-weight: 400;
+            }
+        }
+        .city_code {
+            margin: auto;
+            letter-spacing: .5px;
+            text-align: right;
+            width: 5ch;
+        }
+    }
+    .search_place:hover {
+        transform: scale(1.05);
+        color: #005eb8;
+        background-color: rgba(160, 157, 153, 0.12);
+        cursor: pointer;
+    }
+}
+
+.background_search {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 45%;
+    z-index: 2;
+}
+
+.cloud {
+    position: absolute;
+    top: 0px;
+    animation: cloud_1 60s;
+    animation-iteration-count: infinite;
+    width: 500px;
+    z-index: 1;
+}
+
+.cloud2 {
+    position: absolute;
+    bottom: 70%;
+    animation: cloud_2 70s;
+    animation-iteration-count: infinite;
+    width: 300px;
+    z-index: 1;
+}
+
+.cloud3 {
+    position: absolute;
+    bottom: 80%;
+    animation: cloud_2 100s;
+    animation-iteration-count: infinite;
+    width: 400px;
+    z-index: 1;
+}
+
+.cloud4 {
+    position: absolute;
+    bottom: 70%;
+    animation: cloud_2 110s;
+    animation-iteration-count: infinite;
+    width: 500px;
+    z-index: 1;
+}
+
+@keyframes to-top {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes to-right {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes cloud_1 {
+    from {
+        transform: translateX(1900px)
+    }
+    to {
+        transform: translateX(-900px)
+    }
+}
+
+@keyframes cloud_2 {
+    from {
+        transform: translateX(1900px)
+    }
+    to {
+        transform: translateX(-500px)
+    }
+}

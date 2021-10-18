@@ -3,8 +3,13 @@ const btn = document.querySelector('.btn');
 const modal = document.getElementById('modal');
 const container = document.querySelector('.container');
 const tabs = document.querySelectorAll('.tabimg');
-const forgot = document.getElementById('form-3');
 const signin = document.getElementById('form-1');
+const forgot = document.getElementById('form-3');
+const otp = document.getElementById('form-4');
+const username = document.getElementById('username');
+const passField = document.querySelector("input");
+const showBtn = document.querySelector("span i");
+
 
 function changeSlider(img, para, title) {
     imgSlider(img);
@@ -44,6 +49,7 @@ function openIn(click) {
 function forgotPass(click) {
     modal.style.display = "block";
     signin.style.display = "none";
+    otp.style.display = "none";
     forgot.style.display = "flex";
 };
 // link open modal Signup
@@ -65,4 +71,14 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-}
+};
+// Hide/Show Password
+showBtn.onclick = (() => {
+    if (passField.type === "password") {
+        passField.type = "text";
+        showBtn.classList.add("hide-btn");
+    } else {
+        passField.type = "password";
+        showBtn.classList.remove("hide-btn");
+    }
+});

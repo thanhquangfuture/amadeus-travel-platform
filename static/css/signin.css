@@ -109,7 +109,7 @@ section .container .forgotPass .formBx .btn-10 {
 }
 
 .form-group.invalid .form-message {
-    color: #e73e49;
+    color: #005eb8;
 }
 
 section .container .user .formBx .signin,
@@ -139,7 +139,28 @@ section .container .user .formBx .signup a {
     color: #577eff;
 }
 
-#form-3 {
+
+/* section .container .user .formBx input:valid~.show-btn {
+    display: block; 
+} */
+
+section .container .user .formBx .form-group span i.hide-btn::before {
+    content: "f070";
+}
+
+section .container .user .formBx .show-btn {
+    position: absolute;
+    right: 50px;
+    top: 47%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #8e44ad;
+    cursor: pointer;
+    display: none;
+}
+
+#form-3,
+#form-4 {
     display: none;
 }
 
@@ -237,10 +258,11 @@ button:hover {
     width: 30px;
     height: 100%;
     background-color: #fff;
-    animation: shiny-btn1 3s ease-in-out infinite;
+    /* animation: shiny-btn1 3s ease-in-out infinite; */
 }
 
-@-webkit-keyframes shiny-btn1 {
+
+/* @-webkit-keyframes shiny-btn1 {
     0% {
         -webkit-transform: scale(0) rotate(45deg);
         opacity: 0;
@@ -257,7 +279,7 @@ button:hover {
         -webkit-transform: scale(50) rotate(45deg);
         opacity: 0;
     }
-}
+} */
 
 section .container .user .formBx .close img {
     top: 5px;
